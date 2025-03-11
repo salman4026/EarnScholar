@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EarnScholar | Empowering Students to Excel</title>
+  <meta name="description" content="Empowering students to excel with expert academic support, from coursework to research mastery.">
+  <meta name="keywords" content="assignment help, academic writing, dissertation support, research guidance">
+  <meta name="author" content="EarnScholar">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero-section.css">
+  <link rel="stylesheet" href="css/stats-section.css">
+  <link rel="stylesheet" href="css/why-choose-us.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/testimonials.css">
+  <link rel="stylesheet" href="css/contact-assignment.css">
+  <link rel="stylesheet" href="css/faq.css">
+  <link rel="stylesheet" href="css/universities.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Inline CSS for Scroll to Top Button and Red-White Theme -->
+  <style>
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #ff0000; /* Red */
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    #scrollToTopBtn:hover {
+      background-color: #cc0000; /* Darker red on hover */
+      transform: scale(1.1);
+    }
+
+    /* Basic Red and White Theme Adjustments */
+    body {
+      background-color: #ffffff; /* White background */
+      color: #333; /* Dark text for contrast */
+    }
+
+    /* Example header styling (adjust in header.css) */
+    #header {
+      background-color: #ff0000; /* Red */
+      color: white;
+    }
+
+    /* Example footer styling (adjust in footer.css) */
+    #footer {
+      background-color: #ff0000; /* Red */
+      color: white;
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script defer src="js/script.js"></script>
+  <script defer src="js/features.js"></script>
+</head>
+<body>
+
+  <!-- Dynamic Sections -->
+  <div id="header"></div>
+  <div id="hero-section"></div>
+  <div id="features"></div>
+  <div id="stats-section"></div>
+  <div id="why-choose-us"></div>
+  <div id="services"></div>
+  <div id="testimonials"></div>
+  <div id="faq"></div>
+  <div id="universities"></div>
+  <div id="Contact"></div>
+  <div id="footer"></div>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript for Scroll to Top Functionality -->
+  <script>
+    // Get the button
+    let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // Show button when user scrolls down 100px
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.style.display = "block";
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
+    };
+
+    // Scroll to top when button is clicked
+    scrollToTopBtn.onclick = function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    };
+  </script>
+
+</body>
+</html>

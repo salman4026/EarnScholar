@@ -1,0 +1,207 @@
+/* ===== Why Choose Us Section ===== */
+.why-choose-us {
+  padding: 100px 20px;
+  background: #F8F8F8; /* Slightly different from services for distinction */
+  position: relative;
+  overflow: hidden;
+}
+
+.why-choose-us-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Section Heading */
+.section-heading {
+  font-size: 40px;
+  color: #1C085D;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Georgia', serif;
+}
+
+.section-heading i {
+  font-size: 44px;
+  color: #EB001B;
+  margin-right: 12px;
+  position: relative;
+  top: -2px;
+}
+
+.section-heading::after {
+  content: '';
+  width: 60px;
+  height: 2px;
+  background: #1C085D; /* Darker accent for contrast */
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Section Subtitle */
+.section-subtitle {
+  font-size: 17px;
+  color: #666666;
+  margin-bottom: 60px;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  letter-spacing: 0.3px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
+  padding: 0 15px;
+}
+
+/* Individual Feature Box */
+.feature {
+  background: #FFFFFF;
+  padding: 35px 25px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s ease;
+  position: relative;
+  border-left: 4px solid transparent;
+}
+
+.feature:hover {
+  border-left-color: #1C085D;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.feature::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #EB001B;
+  transition: width 0.4s ease;
+}
+
+.feature:hover::after {
+  width: 100%;
+}
+
+/* Feature Icons */
+.feature-icon {
+  font-size: 42px;
+  color: #1C085D;
+  margin-bottom: 18px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.feature:hover .feature-icon {
+  color: #EB001B;
+}
+
+/* Feature Titles */
+.feature h3 {
+  font-size: 22px;
+  color: #1C085D;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+}
+
+/* Feature Description */
+.feature p {
+  font-size: 15px;
+  color: #777777;
+  line-height: 1.7;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .section-heading {
+    font-size: 36px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-choose-us {
+    padding: 80px 15px;
+  }
+
+  .section-heading {
+    font-size: 32px;
+  }
+
+  .section-heading i {
+    font-size: 38px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .feature {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-heading {
+    font-size: 28px;
+    display: block;
+    text-align: center;
+  }
+
+  .section-heading i {
+    font-size: 34px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-heading::after {
+    width: 40px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+  }
+
+  .feature {
+    padding: 25px 15px;
+  }
+
+  .feature-icon {
+    font-size: 36px;
+  }
+
+  .feature h3 {
+    font-size: 20px;
+  }
+
+  .feature p {
+    font-size: 14px;
+  }
+}

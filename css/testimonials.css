@@ -1,0 +1,210 @@
+/* ===== Testimonials Section ===== */
+.testimonials-section {
+  padding: 100px 20px;
+  background: #FDFDFD;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Section Heading */
+.section-heading {
+  font-size: 40px;
+  color: #1C085D;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Georgia', serif;
+}
+
+.section-heading i {
+  font-size: 44px;
+  color: #EB001B;
+  margin-right: 12px;
+  position: relative;
+  top: -2px;
+}
+
+.section-heading::after {
+  content: '';
+  width: 60px;
+  height: 2px;
+  background: #EB001B;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Section Subtitle */
+.section-subtitle {
+  font-size: 17px;
+  color: #666666;
+  margin-bottom: 50px;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  letter-spacing: 0.3px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 15px;
+}
+
+/* Review Card */
+.review-card {
+  background: #FFFFFF;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #EDEDED;
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+}
+
+.review-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-color: #EB001B;
+}
+
+.review-card::before {
+  content: '“';
+  font-size: 60px;
+  color: #EB001B;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-family: 'Georgia', serif;
+  opacity: 0.2;
+}
+
+/* Review Header */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.review-header h3 {
+  font-size: 22px;
+  color: #1C085D;
+  font-weight: 600;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+}
+
+.review-header .rating {
+  font-size: 18px;
+  color: #EB001B;
+  letter-spacing: 1px;
+}
+
+/* Review Text */
+.review-card p {
+  font-size: 15px;
+  color: #777777;
+  line-height: 1.7;
+  font-family: 'Arial', sans-serif;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .section-heading {
+    font-size: 36px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 80px 15px;
+  }
+
+  .section-heading {
+    font-size: 32px;
+  }
+
+  .section-heading i {
+    font-size: 38px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .review-card {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-heading {
+    font-size: 28px;
+    display: block;
+    text-align: center;
+  }
+
+  .section-heading i {
+    font-size: 34px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-heading::after {
+    width: 40px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+  }
+
+  .review-card {
+    padding: 20px 15px;
+  }
+
+  .review-header h3 {
+    font-size: 20px;
+  }
+
+  .review-header .rating {
+    font-size: 16px;
+  }
+
+  .review-card p {
+    font-size: 14px;
+  }
+
+  .review-card::before {
+    font-size: 50px;
+    top: 5px;
+    left: 10px;
+  }
+}

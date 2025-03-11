@@ -1,0 +1,239 @@
+/* ===== Services Section ===== */
+.services-section {
+  padding: 120px 20px 100px;
+  background: #FDFDFD;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Section Heading */
+.section-heading {
+  font-size: 40px;
+  color: #1C085D;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.section-heading i {
+  font-size: 44px;
+  color: #EB001B;
+  margin-right: 12px;
+  position: relative;
+  top: -2px;
+}
+
+.section-heading::after {
+  content: '';
+  width: 60px;
+  height: 2px;
+  background: #EB001B;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Section Subtitle */
+.section-subtitle {
+  font-size: 17px;
+  color: #666666;
+  margin-bottom: 60px;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  letter-spacing: 0.3px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
+  padding: 0 15px;
+}
+
+/* Individual Service Box */
+.service {
+  background: #FFFFFF;
+  padding: 40px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #EDEDED;
+  transition: all 0.4s ease;
+  position: relative;
+  text-align: center;
+}
+
+.service::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #EB001B;
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.service:hover::before {
+  width: 50%;
+}
+
+.service:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  border-color: #EB001B;
+}
+
+/* Service Icons */
+.service-icon {
+  font-size: 46px;
+  color: #1C085D;
+  margin-bottom: 20px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.service:hover .service-icon {
+  color: #EB001B;
+}
+
+/* Service Titles */
+.service h3 {
+  font-size: 22px;
+  color: #1C085D;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+}
+
+/* Service Description */
+.service p {
+  font-size: 15px;
+  color: #777777;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  display: inline-block;
+  padding: 10px 24px;
+  background: transparent;
+  color: #EB001B;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid #EB001B;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  font-family: 'Georgia', serif;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  background: #EB001B;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(235, 0, 27, 0.3);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .section-heading {
+    font-size: 36px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 80px 15px 60px;
+  }
+
+  .section-heading {
+    font-size: 32px;
+  }
+
+  .section-heading i {
+    font-size: 38px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .service {
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-heading {
+    font-size: 28px;
+    display: block;
+    text-align: center;
+  }
+
+  .section-heading i {
+    font-size: 34px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-heading::after {
+    width: 40px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+  }
+
+  .service {
+    padding: 30px 15px;
+  }
+
+  .service-icon {
+    font-size: 40px;
+  }
+
+  .service h3 {
+    font-size: 20px;
+  }
+
+  .service p {
+    font-size: 14px;
+  }
+
+  .cta-button {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}
