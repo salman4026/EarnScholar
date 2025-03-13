@@ -2,18 +2,17 @@
 .footer-section {
   background: linear-gradient(135deg, #1C085D 0%, #2A0A8A 100%);
   color: #FFFFFF;
-  padding: 80px 20px 0;
+  padding: 10px 10px 0;
   position: relative;
-  overflow: hidden;
-}
+  overflow: hidden;}
 
 .footer-container {
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  padding-bottom: 40px;
+  gap: 5px;
+  padding-bottom: 5px;
 }
 
 /* Footer Columns */
@@ -25,7 +24,7 @@
   font-size: 24px;
   font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: 'Georgia', serif;
   letter-spacing: 0.5px;
   position: relative;
@@ -34,10 +33,10 @@
 .footer-column h3::after {
   content: '';
   width: 40px;
-  height: 3px;
+  height: 2px;
   background: #EB001B;
   position: absolute;
-  bottom: -10px;
+  bottom: -5px;
   left: 0;
 }
 
@@ -45,20 +44,17 @@
 .footer-brand p {
   font-size: 16px;
   color: #D0D0D0;
-  line-height: 1.8;
+  line-height: 1.5;
   font-family: 'Arial', sans-serif;
-  margin-bottom: 25px;
-}
+  margin-bottom:0px;}
 
 /* Quick Links */
 .footer-links ul {
   list-style: none;
-  padding: 0;
-}
+  padding: 0;}
 
 .footer-links ul li {
-  margin: 15px 0;
-}
+  margin: 5px 0;}
 
 .footer-links ul li a {
   text-decoration: none;
@@ -79,7 +75,7 @@
   font-size: 16px;
   color: #D0D0D0;
   font-family: 'Arial', sans-serif;
-  margin: 15px 0;
+  margin: 5px 0;
   display: flex;
   align-items: center;
 }
@@ -121,7 +117,7 @@
 /* Footer Bottom */
 .footer-bottom {
   background: rgba(6, 6, 6, 0.9);
-  padding: 25px 20px;
+  padding: 20px 20px;
   text-align: center;
   font-family: 'Arial', sans-serif;
   position: relative;
@@ -153,7 +149,7 @@
 @media (max-width: 1024px) {
   .footer-container {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
+    gap: 10px;
   }
 
   .footer-column h3 {
@@ -163,13 +159,13 @@
 
 @media (max-width: 768px) {
   .footer-section {
-    padding: 60px 15px 0;
+    padding: 20px 15px 0;
   }
 
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 40px;
+    gap: 10px;
   }
 
   .footer-column h3::after {
@@ -191,7 +187,7 @@
   }
 
   .footer-bottom {
-    padding: 20px 15px;
+    padding: 10px 15px;
   }
 
   .footer-bottom-accent {
@@ -201,7 +197,6 @@
 
 @media (max-width: 480px) {
   .footer-column h3 {
-
     font-size: 20px;
     text-align: center;
   }
