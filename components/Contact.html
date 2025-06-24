@@ -9,8 +9,8 @@
       <a href="#contact-form" class="cta-button">Start Now</a>
     </div>
     <div class="form-column">
-      <form id="contact-form" action="#" method="POST" enctype="multipart/form-data">
-        <h3 class="form-title">Let’s Get Started</h3>
+      <form id="contact-form" novalidate>
+        <h3 class="form-title">Let's Get Started</h3>
         <div class="form-grid">
           <div class="input-group">
             <input type="text" name="name" placeholder="Your Name" required aria-label="Name">
@@ -30,17 +30,103 @@
           <div class="input-group">
             <input type="text" name="university" placeholder="University" required aria-label="University">
           </div>
-          <div class="file-input-group">
-            <label for="file1" class="file-label"><i class="fas fa-paperclip"></i> Attach File 1</label>
-            <input type="file" id="file1" name="file1" aria-label="Upload File 1">
-          </div>
-          <div class="file-input-group">
-            <label for="file2" class="file-label"><i class="fas fa-paperclip"></i> Attach File 2</label>
-            <input type="file" id="file2" name="file2" aria-label="Upload File 2">
-          </div>
         </div>
         <button type="submit" class="submit-btn">Request Consultation</button>
       </form>
+      <div id="contact-success" class="success-card" style="display:none;">
+        <div class="success-icon">&#10003;</div>
+        <div class="success-title">Message Sent!</div>
+        <div class="success-message">Thank you for reaching out. We'll get back to you as soon as possible.</div>
+      </div>
+      <div id="contact-warning" class="warning-card" style="display:none;">
+        <div class="warning-icon">&#9888;</div>
+        <div class="warning-title">Submission Failed</div>
+        <div class="warning-message">There was an error submitting your message. Please try again later or contact support.</div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const successCard = document.getElementById('contact-success');
+    const warningCard = document.getElementById('contact-warning');
+    
+    if (form && successCard && warningCard) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        
+        // Validate form
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return false;
+        }
+        
+        // Show loading state
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Prepare form data for Formspree
+        const formData = new FormData();
+        formData.append('_subject', 'New Contact Request from EarnScholar');
+        formData.append('_captcha', 'false');
+        
+        // Add form fields
+        const formFields = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+        formFields.forEach(field => {
+          if (field.name && field.value) {
+            formData.append(field.name, field.value);
+          }
+        });
+        
+        // Submit to Formspree
+        fetch('https://formspree.io/f/mdkzwpre', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          console.log('Response status:', response.status);
+          console.log('Response ok:', response.ok);
+          
+          if (response.ok || response.status === 200) {
+            // Success - show success card
+            form.style.display = 'none';
+            successCard.style.display = 'flex';
+            warningCard.style.display = 'none';
+            form.reset();
+          } else {
+            // Error - show warning card
+            throw new Error('Form submission failed with status: ' + response.status);
+          }
+        })
+        .catch(error => {
+          console.error('Form submission error:', error);
+          // Show warning card
+          form.style.display = 'none';
+          successCard.style.display = 'none';
+          warningCard.style.display = 'flex';
+        })
+        .finally(() => {
+          // Reset button
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        });
+        
+        return false;
+      });
+      
+      // Prevent any other form submission handlers
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        return false;
+      }, true);
+    }
+  });
+</script>

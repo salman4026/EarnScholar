@@ -6,21 +6,21 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
 }
 
 /* ===== Header Styling ===== */
 header {
-  background-color: #1C085D;
+  background: #1C085D;
   padding: 15px 20px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: padding 0.3s ease;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .header-container {
@@ -30,13 +30,26 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 /* Left Section: Logo & Navigation */
 .left-section {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
+  flex: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
 }
 
 .logo img {
@@ -47,103 +60,182 @@ header {
 
 .menu-bar {
   display: flex;
-  gap: 20px;
+  gap: 30px;
+  align-items: center;
 }
 
 .menu-bar a {
   color: #FFFFFF;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 5px 10px;
-  transition: color 0.3s ease;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.menu-bar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #EB001B;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.menu-bar a:hover::after {
+  width: 80%;
 }
 
 .menu-bar a:hover,
 .menu-bar a:focus {
   color: #EB001B;
+  font-weight: 600;
 }
 
 /* Center Section: Call-to-Action Button */
 .center-section {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 .btn-service {
-  padding: 10px 20px;
-  background-color: #EB001B;
+  padding: 12px 24px;
+  background: #EB001B;
   color: #FFFFFF;
   text-decoration: none;
-  border-radius: 5px;
   font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #EB001B;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.btn-service::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.3s ease;
+}
+
+.btn-service:hover::before {
+  left: 0;
 }
 
 .btn-service:hover,
 .btn-service:focus {
-  background-color: #C00016;
+  background: #C00016;
+  border-color: #C00016;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(235, 0, 27, 0.3);
 }
 
 /* Right Section: Contact & Social Media */
 .right-section {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .contact-info {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
   color: white;
   white-space: nowrap;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.contact-info:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .social-media {
   display: flex;
-  gap: 15px;
+  gap: 12px;
+  align-items: center;
 }
 
-.social-media a {
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
   color: #FFFFFF;
-  font-size: 20px;
-  transition: color 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
 }
 
-.social-media a:hover,
-.social-media a:focus {
-  color: #EB001B;
-  transform: scale(1.1);
+.social-link:hover,
+.social-link:focus {
+  color: #FFFFFF;
+  background: #EB001B;
+  border-color: #EB001B;
+}
+
+.social-link i {
+  position: relative;
+  z-index: 1;
 }
 
 /* Mobile Menu Icon */
 .mobile-menu-icon {
   display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 18px;
   color: white;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.mobile-menu-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mobile-menu-icon.active {
+  background: #EB001B;
+  border-color: #EB001B;
 }
 
 /* Mobile Navigation */
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background-color: #1C085D;
+  background: #1C085D;
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-10px);
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu.active {
@@ -152,18 +244,107 @@ header {
   transform: translateY(0);
 }
 
-.mobile-menu a {
+.mobile-menu-item {
   color: white;
   text-decoration: none;
-  padding: 12px 20px;
-  display: block;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
   text-align: left;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
-.mobile-menu a:hover,
-.mobile-menu a:focus {
-  background-color: #EB001B;
+.mobile-menu-item:hover,
+.mobile-menu-item:focus {
+  background: rgba(235, 0, 27, 0.15);
+  border-color: #EB001B;
+  transform: translateX(5px);
+}
+
+.mobile-menu-item i {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.mobile-menu-item span {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.mobile-cta {
+  background: #EB001B !important;
+  border-color: #EB001B !important;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+}
+
+.mobile-cta:hover {
+  background: #C00016 !important;
+  border-color: #C00016 !important;
+  transform: translateX(5px);
+}
+
+.mobile-menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 15px 0;
+}
+
+.mobile-contact-info {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.mobile-phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.mobile-phone i {
+  color: #EB001B;
+  font-size: 16px;
+}
+
+.mobile-social {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.mobile-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.mobile-social a:hover {
+  background: #EB001B;
+  border-color: #EB001B;
 }
 
 /* ===== Responsive Design ===== */
@@ -175,11 +356,19 @@ header {
   .header-container {
     flex-wrap: nowrap;
   }
+
+  .left-section {
+    gap: 30px;
+  }
+
+  .menu-bar {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
   header {
-    padding: 10px 15px;
+    padding: 12px 15px;
   }
 
   .menu-bar {
@@ -187,7 +376,7 @@ header {
   }
 
   .mobile-menu-icon {
-    display: block;
+    display: flex;
   }
 
   .right-section {
@@ -196,10 +385,17 @@ header {
 
   .contact-info {
     font-size: 12px;
+    padding: 6px 12px;
   }
 
-  .social-media a {
-    font-size: 18px;
+  .social-link {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .logo img {
+    max-width: 120px;
   }
 }
 
@@ -218,5 +414,46 @@ header {
 
   .contact-info {
     display: none;
+  }
+
+  .social-link {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .mobile-menu {
+    padding: 15px;
+  }
+
+  .mobile-menu-item {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .mobile-menu-item i {
+    font-size: 15px;
+    width: 18px;
+  }
+
+  .mobile-menu-item span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo img {
+    max-width: 80px;
+  }
+
+  .social-link {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .mobile-menu-icon {
+    padding: 8px;
+    font-size: 16px;
   }
 }

@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     mobileMenuIcon.addEventListener("click", function (e) {
       e.stopPropagation();
       mobileMenu.classList.toggle("active");
+      mobileMenuIcon.classList.toggle("active");
       mobileMenuIcon.setAttribute(
         "aria-expanded",
         mobileMenu.classList.contains("active") ? "true" : "false"
@@ -67,6 +68,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         mobileMenu.classList.contains("active")
       ) {
         mobileMenu.classList.remove("active");
+        mobileMenuIcon.classList.remove("active");
         mobileMenuIcon.setAttribute("aria-expanded", "false");
       }
     });
@@ -74,6 +76,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.addEventListener("resize", function () {
       if (window.innerWidth > 768 && mobileMenu.classList.contains("active")) {
         mobileMenu.classList.remove("active");
+        mobileMenuIcon.classList.remove("active");
         mobileMenuIcon.setAttribute("aria-expanded", "false");
       }
     });
@@ -81,6 +84,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
         mobileMenu.classList.remove("active");
+        mobileMenuIcon.classList.remove("active");
         mobileMenuIcon.setAttribute("aria-expanded", "false");
         mobileMenuIcon.focus();
       }
@@ -130,14 +134,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         const answer = question.nextElementSibling;
         const isExpanded = question.classList.contains("expanded");
 
+        // Close all other answers
         document.querySelectorAll(".faq-question").forEach((q) => {
           if (q !== question) {
             q.classList.remove("expanded");
             q.setAttribute("aria-expanded", "false");
-            q.nextElementSibling.classList.remove("visible");
+            if (q.nextElementSibling) q.nextElementSibling.classList.remove("visible");
           }
         });
 
+        // Toggle current answer
         if (isExpanded) {
           question.classList.remove("expanded");
           question.setAttribute("aria-expanded", "false");

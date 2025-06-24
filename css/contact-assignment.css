@@ -1,7 +1,7 @@
 /* ===== Contact & Assignment Help Section ===== */
 .contact-assignment-section {
   padding: 120px 20px;
-  background: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 100%);
+  background: #F8F8F8;
   position: relative;
   overflow: hidden;
 }
@@ -213,6 +213,167 @@
   box-shadow: 0 8px 20px rgba(28, 8, 93, 0.4);
 }
 
+/* Enhanced Success and Warning Cards */
+.success-card,
+.warning-card {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 30px;
+  border-radius: 20px;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.success-card {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: #fff;
+  border: none;
+}
+
+.success-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.warning-card {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  color: #fff;
+  border: none;
+}
+
+.warning-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.1;
+  }
+}
+
+.success-icon,
+.warning-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s both;
+}
+
+.success-icon {
+  color: #fff;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.warning-icon {
+  color: #fff;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.success-title,
+.warning-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-family: 'Georgia', serif;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s both;
+}
+
+.success-title {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.warning-title {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.success-message,
+.warning-message {
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s both;
+  max-width: 400px;
+}
+
+.success-message {
+  color: rgba(255,255,255,0.95);
+}
+
+.warning-message {
+  color: rgba(255,255,255,0.95);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===== Responsive Design ===== */
 @media (max-width: 1024px) {
   .contact-assignment-container {
@@ -269,6 +430,30 @@
   .form-title {
     font-size: 24px;
   }
+
+  /* Enhanced Success/Warning Cards - Mobile */
+  .success-card,
+  .warning-card {
+    padding: 40px 20px;
+    margin-top: 15px;
+  }
+
+  .success-icon,
+  .warning-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+  }
+
+  .success-title,
+  .warning-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .success-message,
+  .warning-message {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -311,6 +496,30 @@
 
   .submit-btn {
     padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Enhanced Success/Warning Cards - Small Mobile */
+  .success-card,
+  .warning-card {
+    padding: 30px 15px;
+    margin-top: 10px;
+  }
+
+  .success-icon,
+  .warning-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  .success-title,
+  .warning-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .success-message,
+  .warning-message {
     font-size: 14px;
   }
 }

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a Service Provider | EarnScholar</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/premium-form.css">
+</head>
+<body>
+  <section class="premium-form-section fade-in">
+    <div class="premium-form-container">
+      <div class="premium-form-visual">
+        <img src="assets/logo1.png" alt="Become a Provider" class="premium-form-illustration" loading="lazy">
+        <h1 class="premium-form-heading">Become a Service Provider</h1>
+        <p class="premium-form-tagline">Join our team of academic experts. Fill out the form and start helping students worldwide.</p>
+      </div>
+      <form class="premium-form" action="https://formspree.io/f/mdkzwpre" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" data-netlify="false" autocomplete="off" id="provider-form">
+        <input type="hidden" name="_subject" value="New Service Provider Application from EarnScholar">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="name" name="name" required placeholder=" ">
+            <label for="name">Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" required placeholder=" ">
+            <label for="email">Email</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" id="phone" name="phone" required placeholder=" ">
+            <label for="phone">Phone Number</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="university" name="university" required placeholder=" ">
+            <label for="university">University</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="expertise" name="expertise" required placeholder=" ">
+            <label for="expertise">Area of Expertise</label>
+          </div>
+          <div class="form-group">
+            <input type="url" id="linkedin" name="linkedin" placeholder=" ">
+            <label for="linkedin">LinkedIn Profile (optional)</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <textarea id="bio" name="bio" rows="4" required placeholder=" "></textarea>
+          <label for="bio">Short Bio / Cover Letter</label>
+        </div>
+
+        <button type="submit" class="premium-form-submit">Submit Application</button>
+        <div class="form-success-message" style="display:none;color:#1C085D;font-weight:600;margin-top:18px;text-align:center;">Thank you! Your application has been submitted.</div>
+      </form>
+      <div id="provider-success" class="success-card" style="display:none;">
+        <div class="success-icon">&#10003;</div>
+        <div class="success-title">Application Submitted!</div>
+        <div class="success-message">Thank you for applying to become a service provider. We'll review your application and get in touch soon.</div>
+      </div>
+      <div id="provider-warning" class="warning-card" style="display:none;">
+        <div class="warning-icon">&#9888;</div>
+        <div class="warning-title">Submission Failed</div>
+        <div class="warning-message">There was an error submitting your application. Please try again later or contact support.</div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Form row layout for two inputs side by side */
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .form-row .form-group {
+        margin-bottom: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .form-row .form-group {
+        margin-bottom: 28px;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Success card logic
+      const form = document.getElementById('provider-form');
+      const successCard = document.getElementById('provider-success');
+      const warningCard = document.getElementById('provider-warning');
+      if (form && successCard && warningCard) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const formData = new FormData(form);
+          fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          }).then(response => {
+            if (response.ok) {
+              form.style.display = 'none';
+              successCard.style.display = 'flex';
+              warningCard.style.display = 'none';
+              form.reset();
+            } else {
+              form.style.display = 'none';
+              successCard.style.display = 'none';
+              warningCard.style.display = 'flex';
+            }
+          }).catch(() => {
+            form.style.display = 'none';
+            successCard.style.display = 'none';
+            warningCard.style.display = 'flex';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html> 
